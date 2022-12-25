@@ -1,0 +1,79 @@
+﻿@model IEnumerable<mvc.Models.Product>
+
+@{
+    ViewData["Title"] = "Trang sản phẩm -";
+}
+
+<h1>Danh sách sản phẩm</h1>
+
+<p>
+    <a asp-action="Create">Thêm sản phẩm</a>
+</p>
+
+
+<form method="get" asp-action="Index">
+    <p>
+        <input type="text" placeholder="Nhập tên sản phẩm bạn cần tìm..?" value="@ViewData["Gatemployeedetails"]" name="Empseach" style="width:500px; height:33px;" />
+        <input type="submit" value="Tìm Kiếm" class="btn btn-info" />
+        | <a class="btn btn-info" asp-action="Index">Xem tất cả</a> |
+        <a class="text-right" style="overflow: hidden; padding: 1px 0px 0px 0px; margin-top: -47px; margin-bottom: 10px;">
+            <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("ExportToExcel", "Products")'">Xuất Excel</button>
+        </a>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Name)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Price)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desciption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desciption)
+                </td>
+                <td>
+                    <img src="~/images/@Html.DisplayFor(modelItem => item.Image)" class="img-thumnail" width="100" />
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Xem</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

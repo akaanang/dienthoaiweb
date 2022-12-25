@@ -1,0 +1,64 @@
+﻿@model IEnumerable<mvc.Models.BillDetail>
+
+@{
+    ViewData["Title"] = "Chi tiết hóa đơn ";
+}
+
+<h1>Thông tin chi tiết </h1>
+
+<p>
+    <a asp-action="Create">Thêm mới</a>
+    <a class="text-right" style="overflow: hidden; padding: 1px 0px 0px 0px; margin-top: -47px; margin-bottom: 10px;">
+        | <button type="button" class="btn btn-outline-info" onclick="location.href='@Url.Action("ExportToExcel", "BillDetails")'">Xuất thông tin hóa đơn</button>
+    </a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bill.CustomerAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BillDetailId">Sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.BillDetailId">Xem</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BillDetailId">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

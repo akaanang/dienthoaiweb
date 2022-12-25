@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Củ Năng Shop</title>
+
+    <meta charset="utf-8">
+    <!-- <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <img src="~/images/H1.png" width="100%" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/79badda595.js" crossorigin="anonymous"></script>
+
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark" width="100%">
+        <div class="container">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index"><b>Củ Năng Shop</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                </li>
+
+                <!--Tìm kiếm-->
+                <form class="d-flex" method="get" asp-action="Index">
+                    <input class="form-control me-2" type="text" type="search" placeholder="Bạn cần tìm gì..?" value="@ViewData["Gatemployeedetails"]" name="Empseach" style="width:400px; height:38px; aria-label=" Search" />
+                    <input type="submit" value="Tìm kiếm" class="btn btn-outline-light" />
+                    <ul class="navbar-nav">
+                </form>
+
+
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="ViewCart"><i class="bi bi-cart-plus"></i> Giỏ Hàng</a>
+                </li>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Quản lý
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="Products">Sản Phẩm</a></li>
+                                <li><a class="dropdown-item" href="Bills">Hóa Đơn</a></li>
+                                <li><a class="dropdown-item" href="BillDetails">Thông tin Hóa đơn</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tài Khoản
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="Identity/Account/Login">Đăng Nhập</a></li>
+                                <li><a class="dropdown-item" href="Identity/Account/Register">Đăng Ký</a></li>
+                               
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </ul>
+
+            <!--
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form method="get" asp-action="Index">
+                        <p>
+                            <input type="text" placeholder="Hôm nay bạn cần tìm gì...?" value="@ViewData["Gatemployeedetails"]" name="Empseach" style="width:300px; height:30px;" />
+                            <input type="submit" value="search" class="btn btn-info" />
+                            <a class="btn btn-outline-info" asp-action="Index">Xem tất cả</a>
+                        </p>
+                    </form>
+                </li>
+            </ul>
+                -->
+
+
+        </div>
+    </nav>
+
+    <div class="container" style="margin:auto; background-image: url('@Url.Content("~/images/#")'); background-repeat: no-repeat; background-size: cover;" ;>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <!--Footer-->
+    <section class="clearfix footer bg-danger">
+        <!-- Remove the container if you want to extend the Footer to full width. -->
+        <footer class="text-center text-lg-start text-light">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-between p-4 text-white"
+                     style="background-color: ">
+
+
+                <div>
+                    <div class="me-5 container">
+                        <span>Theo dõi</span>
+
+                        <a href="" class="text-white me-4">
+                            <i class=""></i>
+                        </a>
+                        <a href="https://www.facebook.com/chanzenguyen1006/" class="text-white me-4">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="" class="text-white me-4">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCSDP0SfFmJcR58GXf7huTJA" class="text-white me-4">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="" class="text-white me-4">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Social media -->
+            <!-- Section: Links  -->
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold">Cu Nang Shop</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                Cu Nang Shop chuyên kinh doanh các sản phẩm di động thông minh!
+                            </p>
+                        </div>
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Hỗ trợ - Dịch vụ</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p>
+                                <a>Mua hàng trả góp</a>
+                            </p>
+                            <p>
+                                <a>Hướng dẫn đặt hàng và thanh toán</a>
+                            </p>
+                            <p>
+                                <a>Chính sách bảo hành</a>
+                            </p>
+
+                            <p>
+                                <a>Hỗ trợ bảo hành và sửa chữa</a>
+                            </p>
+
+                        </div>
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Liên hệ</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #7c4dff; height: 2px" />
+                            <p><i class="fas fa-home mr-3"></i> TP. Long Xuyên, An Giang</p>
+                            <p><i class="fas fa-envelope mr-3"></i> quinang1006.contact@gmail.com</p>
+                            <p><i class="fas fa-phone mr-3"></i> + 84 328 0224 28</p>
+                            <p><i class="fas fa-print mr-3"></i> + 84 328 2222 28</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+
+            <!-- Copyright -->
+            <div class="text-center p-3"
+                 style="background-color: rgba(0, 0, 0, 0.0)">
+                <b>© 2022 Copyright by Nguyễn Quí Năng - DTH195330 - DH20TH2</b>
+
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </section>
+
+
+</body>
+</html>
